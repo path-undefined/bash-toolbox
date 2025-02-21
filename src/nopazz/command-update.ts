@@ -11,25 +11,36 @@ export async function updateAccount(args: string[], accountManager: AccountManag
 
   const accounts = accountManager.listAccount(args);
 
+  let account = accounts[0];
+
   if (accounts.length < 1) {
     printErrorLine(`Query "${args.join(" ")}" doesn't match any account.`);
     return;
   }
   if (accounts.length > 1) {
-    printErrorLine(`Query "${args.join(" ")}" matches more than 1 account:`);
+    printLine(`Query "${args.join(" ")}" matches more than 1 account:`);
+    printEmptyLine();
 
-    for (const account of accounts) {
-      printHeadline(`${account.site} - ${account.username}`);
+    for (let i = 0; i < accounts.length; i++) {
+      const account = accounts[i];
+
+      printHeadline(`${(i + 1).toString().padStart(2, " ")}. ${account.site} - ${account.username}`);
+
       if (account.message) {
-        printLine(account.message);
+        printLine(`    ${account.message}`);
       }
-      printEmptyLine();
     }
 
-    return;
-  }
+    const choice = await askForInput(`Please choose (1~${accounts.length}): `);
+    const choiceIndex = Number(choice.trim()) - 1;
 
-  const account = accounts[0];
+    if (Number.isNaN(choiceIndex) || choiceIndex < 0 || choiceIndex >= accounts.length) {
+      printErrorLine("Invalid choice. Abort!");
+      return;
+    }
+
+    account = accounts[choiceIndex];
+  }
 
   printHeadline(`${account.site} - ${account.username}`);
   if (account.message) {
