@@ -19,6 +19,7 @@ export async function getAccount(args: string[], accountManager: AccountManager)
   }
   if (accounts.length > 1) {
     printLine(`Query "${args.join(" ")}" matches more than 1 account:`);
+
     printEmptyLine();
 
     for (let i = 0; i < accounts.length; i++) {
@@ -30,6 +31,8 @@ export async function getAccount(args: string[], accountManager: AccountManager)
         printLine(`    ${account.message}`);
       }
     }
+
+    printEmptyLine();
 
     const choice = await askForInput(`Please choose (1~${accounts.length}): `);
     const choiceIndex = Number(choice.trim()) - 1;
