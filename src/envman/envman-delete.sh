@@ -13,6 +13,6 @@ if [ ! -d ${ENV_PATH} ]; then
   exit 1
 fi
 
-echo "Using configurations in folder: ${ENV_PATH}"
+echo "Removing environment configuration: ${ENV_PATH}"
 
-bash --rcfile "${ENV_PATH}/envrc"
+rm -rf ${ENV_PATH}
