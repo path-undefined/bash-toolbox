@@ -1,0 +1,22 @@
+{
+  "name": "no-pazzword",
+  "version": "1.0.0",
+  "description": "A command-line password manager program.",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "read": "^3.0.1"
+  },
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^4.0.1",
+    "@types/node": "^22.13.4",
+    "@typescript-eslint/eslint-plugin": "^8.24.1",
+    "@typescript-eslint/parser": "^8.24.1",
+    "eslint": "^9.20.1",
+    "typescript": "^5.7.3"
+  }
+}

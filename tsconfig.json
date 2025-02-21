@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2023"],
+    "module": "NODE16",
+    "target": "ES2022",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "types": [
+      "node"
+    ],
+    "strict": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
