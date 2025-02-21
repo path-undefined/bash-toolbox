@@ -18,6 +18,7 @@ export async function deleteAccount(args: string[], accountManager: AccountManag
   }
   if (accounts.length > 1) {
     printLine(`Query "${args.join(" ")}" matches more than 1 account:`);
+
     printEmptyLine();
 
     for (let i = 0; i < accounts.length; i++) {
