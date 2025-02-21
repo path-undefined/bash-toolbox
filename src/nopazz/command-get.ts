@@ -49,6 +49,7 @@ export async function getAccount(args: string[], accountManager: AccountManager)
   if (account.message) {
     printLine(account.message);
   }
+
   printEmptyLine();
 
   copyToClipboard(account.username);

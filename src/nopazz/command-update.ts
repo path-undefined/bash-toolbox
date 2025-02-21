@@ -49,6 +49,7 @@ export async function updateAccount(args: string[], accountManager: AccountManag
   if (account.message) {
     printLine(account.message);
   }
+
   printEmptyLine();
 
   const site = await askForInput(`Site (${account.site}): `) || account.site;
