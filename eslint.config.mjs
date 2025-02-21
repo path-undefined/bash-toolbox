@@ -28,8 +28,9 @@ export default [
       ...typescriptEslintPlugin.configs["eslint-recommended"].overrides[0].rules,
       ...typescriptEslintPlugin.configs["recommended"].rules,
       ...typescriptEslintPlugin.configs["strict"].rules,
-      ...stylisticEslintPlugin.configs["recommended-flat"].rules,
+      ...stylisticEslintPlugin.configs["recommended"].rules,
 
+      "@typescript-eslint/no-dynamic-delete": ["off"],
       "@typescript-eslint/no-non-null-assertion": ["off"],
       "@stylistic/arrow-parens": ["error", "always"],
       "@stylistic/member-delimiter-style": ["error", {
