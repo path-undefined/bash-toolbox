@@ -79,6 +79,10 @@ export class AccountManager {
     return this.accountLookup[site][username];
   }
 
+  public setMainPassword(newMainPassword: string) {
+    this.mainPassword = newMainPassword;
+  }
+
   private encryptContent(clearText: string): string {
     const key = scryptSync(this.mainPassword, AccountManager.ENCRYPTION_SALT, 24);
     const iv = randomFillSync(Buffer.alloc(16));

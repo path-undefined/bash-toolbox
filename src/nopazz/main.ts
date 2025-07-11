@@ -7,6 +7,7 @@ import { updateAccount } from "./command-update";
 import { askForSecret } from "../common/console-input";
 import { printEmptyLine, printErrorLine } from "../common/console-output";
 import { AccountManager } from "./account-manager";
+import { changeMainPassword } from "./command-change-password";
 
 (async function () {
   const accountFilePath = process.env.NOPAZZ_FILE;
@@ -47,6 +48,11 @@ import { AccountManager } from "./account-manager";
     case "update":
     case "modify":
       await updateAccount(args.slice(1), accountManager);
+      break;
+
+    case "change-main-password":
+    case "set-main-password":
+      await changeMainPassword(args.slice(1), accountManager);
       break;
 
     default:
