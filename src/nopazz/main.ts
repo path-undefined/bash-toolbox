@@ -28,7 +28,7 @@ import { AccountManager } from "./account-manager";
 
   switch (args[0]) {
     case "merge":
-      await mergeAccount(args.slice(1), accountManager,);
+      await mergeAccount(args.slice(1), accountManager);
       break;
 
     case "add":

@@ -39,8 +39,10 @@ export async function mergeAccount(args: string[], accountManager: AccountManage
       continue;
     }
 
-    printLine(`The incoming account ${incomingAccount.site} - ${incomingAccount.username} doesn't match existing account.`);
-    printLine(`The ${incomingAccount.updatedAt > matchingAccount.updatedAt ? "incoming" : "existing"} account is newer:`);
+    printLine(
+      `The incoming account ${incomingAccount.site} - ${incomingAccount.username} doesn't match existing account`
+      + ` (${incomingAccount.updatedAt > matchingAccount.updatedAt ? "incoming" : "existing"} is newer):`,
+    );
 
     printHeadline("    i. accept incoming account");
     printHeadline("    e. keep existing account");
