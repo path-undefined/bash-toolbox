@@ -75,8 +75,8 @@ export class AccountManager {
     delete this.accountLookup[site][username];
   }
 
-  public getAccount(site: string, username: string): Account {
-    return this.accountLookup[site][username];
+  public getAccount(site: string, username: string): Account | null {
+    return this.accountLookup[site][username] ?? null;
   }
 
   public setMainPassword(newMainPassword: string) {

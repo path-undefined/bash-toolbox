@@ -1,13 +1,14 @@
+import { mergeAccount } from "./command-merge";
 import { addAccount } from "./command-add";
 import { listAccount } from "./command-list";
 import { getAccount } from "./command-get";
 import { deleteAccount } from "./command-delete";
 import { updateAccount } from "./command-update";
+import { changeMainPassword } from "./command-change-password";
 
 import { askForSecret } from "../common/console-input";
 import { printEmptyLine, printErrorLine } from "../common/console-output";
 import { AccountManager } from "./account-manager";
-import { changeMainPassword } from "./command-change-password";
 
 (async function () {
   const accountFilePath = process.env.NOPAZZ_FILE;
@@ -26,6 +27,10 @@ import { changeMainPassword } from "./command-change-password";
   const args: string[] = process.argv.slice(2);
 
   switch (args[0]) {
+    case "merge":
+      await mergeAccount(args.slice(1), accountManager,);
+      break;
+
     case "add":
     case "create":
       await addAccount(args.slice(1), accountManager);
